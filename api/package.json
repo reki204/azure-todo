@@ -10,6 +10,9 @@
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "dependencies": {
     "@azure/functions": "^4.0.0",
     "@hono/zod-validator": "^0.4.2",
@@ -22,6 +25,7 @@
   "devDependencies": {
     "@types/node": "^20.x",
     "rimraf": "^5.0.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
   "main": "dist/src/{index.js,functions/*.js}"
