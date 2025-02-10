@@ -4,10 +4,18 @@ import { Todo } from "../types/todo";
 
 export const useTodos = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
+  const [title, setTitle] = useState("");
 
   const fetchTodos = async () => {
     const data = await todoApi.fetchTodos();
     setTodos(data);
+  };
+
+  const addTodo = async () => {
+    if (!title.trim()) return;
+
+    await todoApi.addTodo(title);
+    setTitle("");
   };
 
   const toggleTodo = async (id: string, isCompleted: boolean) => {
@@ -33,6 +41,9 @@ export const useTodos = () => {
 
   return {
     todos,
+    title,
+    setTitle,
+    addTodo,
     toggleTodo,
     deleteTodo,
   };

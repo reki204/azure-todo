@@ -1,15 +1,7 @@
-import { useState } from "react";
-import { todoApi } from "../api/todoApi";
+import { useTodos } from "../hooks/useTodos";
 
 export const AddTodoForm = () => {
-  const [title, setTitle] = useState("");
-
-  const handleSubmit = async () => {
-    if (!title.trim()) return;
-
-    await todoApi.addTodo(title);
-    setTitle("");
-  };
+  const { title, setTitle, addTodo } = useTodos();
 
   return (
     <div className="flex gap-2 justify-center">
@@ -21,7 +13,7 @@ export const AddTodoForm = () => {
         className="border p-2 rounded"
       />
       <button
-        onClick={handleSubmit}
+        onClick={addTodo}
         className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer"
       >
         追加
