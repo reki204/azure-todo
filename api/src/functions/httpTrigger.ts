@@ -5,7 +5,7 @@ import honoApp from "../index.js";
 app.http("httpTrigger", {
   methods: ["GET", "POST", "DELETE", "PUT"],
   authLevel: "anonymous",
-  route: "{*proxy}",
+  route: "api/test",
   handler: async (request, context) => {
     return { jsonBody: { message: "API is working!" } };
   },
