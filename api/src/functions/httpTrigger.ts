@@ -5,8 +5,6 @@ import honoApp from "../index.js";
 app.http("httpTrigger", {
   methods: ["GET", "POST", "DELETE", "PUT"],
   authLevel: "anonymous",
-  route: "api/test",
-  handler: async (request, context) => {
-    return { jsonBody: { message: "API is working!" } };
-  },
+  route: "{*proxy}",
+  handler: azureHonoHandler(honoApp.fetch),
 });

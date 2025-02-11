@@ -6,10 +6,10 @@ export const useTodos = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [title, setTitle] = useState("");
 
-  // const fetchTodos = async () => {
-  //   const data = await todoApi.fetchTodos();
-  //   setTodos(data);
-  // };
+  const fetchTodos = async () => {
+    const data = await todoApi.fetchTodos();
+    setTodos(data);
+  };
 
   const addTodo = async () => {
     if (!title.trim()) return;
@@ -36,13 +36,7 @@ export const useTodos = () => {
   };
 
   useEffect(() => {
-    const fetchTest = async () => {
-      const response = await fetch("/api/test");
-      console.log("response: ", response);
-      const data = await response.json();
-      console.log("API Response:", data);
-    };
-    fetchTest();
+    fetchTodos();
   }, []);
 
   return {
