@@ -6,5 +6,7 @@ app.http("httpTrigger", {
   methods: ["GET", "POST", "DELETE", "PUT"],
   authLevel: "anonymous",
   route: "{*proxy}",
-  handler: azureHonoHandler(honoApp.fetch),
+  handler: async (request, context) => {
+    return { jsonBody: { message: "API is working!" } };
+  },
 });
