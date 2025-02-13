@@ -4,17 +4,11 @@ describe("Todo API", () => {
   it("GET: /api", async () => {
     const res = await app.request("/api");
     expect(res.status).toBe(200);
-
-    // const data = await res.json();
-    // expect(data).("todos");
   });
 
   it("GET: api/todos", async () => {
     const res = await app.request("/api");
     expect(res.status).toBe(200);
-
-    // const data = await res.json();
-    // expect(data).("todos");
   });
 
   // POST /todos のテスト
